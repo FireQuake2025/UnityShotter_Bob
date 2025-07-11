@@ -12,20 +12,18 @@ public class EnemyManager : MonoBehaviour
     public int wave;
     public int killCount;
     public int spawnCount;
-    public TextMeshProUGUI trapText;
     private float waveTime = 10;
 
 
     
     public void Awake()
     {
-        trapText = GetComponent<TextMeshProUGUI>();
         StartCoroutine("Timer");
     }
 
     public void Update()
     {
-
+        
     }
 
     public void Spawn(int spawnEnemy, int spawnCount)

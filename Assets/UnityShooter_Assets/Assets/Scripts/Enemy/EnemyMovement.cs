@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     PlayerHealth playerHealth;
     EnemyHealth enemyHealth;
     NavMeshAgent nav;
+    public TextMeshProUGUI trapText;
     
     public int trapNum = 3;
 
@@ -54,6 +55,7 @@ public class EnemyMovement : MonoBehaviour
                 trapNum--;
             }
         }
+        
         
     }
 }
