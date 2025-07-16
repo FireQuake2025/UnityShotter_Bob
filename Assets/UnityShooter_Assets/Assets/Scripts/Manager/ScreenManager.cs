@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class ScreenManager : MonoBehaviour
 {
-    Screen screen;
+    private Screen screen;
     private void Update()
     {
         

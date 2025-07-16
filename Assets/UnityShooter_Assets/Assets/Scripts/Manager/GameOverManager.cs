@@ -6,8 +6,8 @@ public class GameOverManager : MonoBehaviour
     public PlayerHealth health;
     public float restartDelay = 5f;
 
-    Animator animator;
-    float restartTimer;
+    private Animator animator;
+    private float restartTimer;
 
     private void Awake()
     {

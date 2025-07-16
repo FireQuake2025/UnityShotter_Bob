@@ -13,10 +13,10 @@ public class PlayerHealth : MonoBehaviour
     public Color flashColor = new Color(1, 0, 0,  .1f);
     public int healthAdd = 10;
 
-    Animator animator;
-    AudioSource playerAudio;
-    PlayerMovement playerMovement;
-    PlayerShooting playerShooting;
+    private Animator animator;
+    private AudioSource playerAudio;
+    private PlayerMovement playerMovement;
+    private PlayerShooting playerShooting;
     public bool isDead;
     public bool damaged;
 

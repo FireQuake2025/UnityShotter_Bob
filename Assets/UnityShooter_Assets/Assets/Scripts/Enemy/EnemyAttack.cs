@@ -4,12 +4,12 @@ public class EnemyAttack : MonoBehaviour
 {
     public float timeBetweenAttacks = .5f;
     public int attackDamage = 10;
-    Animator animator;
-    GameObject player;
-    PlayerHealth playerHealth;
-    EnemyHealth enemyHealth;
-    bool playerInRange;
-    float timer;
+    private Animator animator;
+    public GameObject player;
+    private PlayerHealth playerHealth;
+    private EnemyHealth enemyHealth;
+    private bool playerInRange;
+    private float timer;
 
     private void Awake()
     {

@@ -6,16 +6,18 @@ public class EnemyMovement : MonoBehaviour
 {
     public Transform trapPos;
     public GameObject trap;
-    Transform player;
-    PlayerHealth playerHealth;
-    EnemyHealth enemyHealth;
-    NavMeshAgent nav;
+    private Transform player;
+    private PlayerHealth playerHealth;
+    private EnemyHealth enemyHealth;
+    private NavMeshAgent nav;
     
     public int trapNum = 3;
+    EnemyManager enemyManager;
 
 
     private void Awake()
     {
+        enemyManager = GetComponent<EnemyManager>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerHealth = player.GetComponent<PlayerHealth>();
         enemyHealth = GetComponent<EnemyHealth>();

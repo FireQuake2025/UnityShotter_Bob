@@ -17,22 +17,20 @@ public class PlayerShooting : MonoBehaviour
     public TextMeshProUGUI ammoText;
     public TextMeshProUGUI gunTypeText;
 
-    float timer;
-    Ray shootRay;
-    RaycastHit hitShoot;
-    int shootableMask;
-    ParticleSystem gunParticals;
-    LineRenderer gunLine;
-    AudioSource gunAudio;
-    Light gunLight;
-    EnemyHealth block;
-    //float effectDisTime = .2f;
+    private float currentFiringTime;
+    private Ray shootRay;
+    private RaycastHit hitShoot;
+    private int shootableMask;
+    private ParticleSystem gunParticals;
+    private LineRenderer gunLine;
+    private AudioSource gunAudio;
+    private Light gunLight;
+    
 
     private void Awake()
     {
         gunTypeText.text = "Pistol";
         ammo = maxAmmo;
-        block = GetComponent<EnemyHealth>();
         shootableMask = LayerMask.GetMask("Shootable");
         gunParticals = GetComponent<ParticleSystem>();
         gunLine = GetComponent<LineRenderer>();
@@ -44,14 +42,14 @@ public class PlayerShooting : MonoBehaviour
         
         if (0 <= ammo)
         {
-            timer += Time.deltaTime;
+            currentFiringTime += Time.deltaTime;
             ammoText.text = "Ammo: " + (ammo);
-            if (Input.GetButtonDown("Fire1") && timer >= timeBetweenBullets && PauseGame.isPaused != true)
+            if (Input.GetButtonDown("Fire1") && currentFiringTime >= timeBetweenBullets && PauseGame.isPaused != true)
             {
                 Shoot();
                 ammo--;      
             }
-            if (timer >= timeBetweenBullets)
+            if (currentFiringTime >= timeBetweenBullets)
             {
                 DisableEffect();
             }
@@ -60,7 +58,7 @@ public class PlayerShooting : MonoBehaviour
     }
     void Shoot()
     {
-        timer = 0;
+        currentFiringTime = 0;
         gunAudio.Play();
         gunLight.enabled = true;
         gunParticals.Stop();
@@ -134,7 +132,7 @@ public class PlayerShooting : MonoBehaviour
     IEnumerator Timer(float boostDuration)
     {
         yield return new WaitForSeconds(boostDuration);
-        damagePerShoot = 20;
+        damagePerShoot = damagePerShoot * 2;
         Debug.Log("Finish Damage Boost");
     }
 }
