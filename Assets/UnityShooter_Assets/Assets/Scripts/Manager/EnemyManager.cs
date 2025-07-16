@@ -9,19 +9,23 @@ public class EnemyManager : MonoBehaviour
     public GameObject[] enemy;
     public float spawnTime = 3;
     public Transform[] spawnPoints;
+    public GameObject player;
     private float waveTime = 10;
 
 
     
     public void Awake()
     {
-        StartCoroutine("Timer");
+        StartCoroutine(Timer()); 
     }
 
     public void Update()
     {
         
     }
+
+    
+
 
     public void Spawn(int spawnEnemy, int spawnCount)
     {
@@ -38,7 +42,7 @@ public class EnemyManager : MonoBehaviour
     }
 
    
-
+    // this is messy but dont know how else to do this
     IEnumerator Timer()
     {
         yield return new WaitForSeconds(1);

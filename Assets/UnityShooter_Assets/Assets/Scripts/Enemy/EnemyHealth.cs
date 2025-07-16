@@ -33,7 +33,7 @@ public  class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isSinking == true)
+        if(isSinking)
         {
             transform.Translate(-Vector3.up * sink * Time.deltaTime);
         }
