@@ -10,10 +10,12 @@ public class EnemyAttack : MonoBehaviour
     private EnemyHealth enemyHealth;
     private bool playerInRange;
     private float timer;
+    EnemyManager enemyManager;
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        enemyManager = GetComponent<EnemyManager>();
+        player = EnemyManager.playerChar;
         playerHealth = player.GetComponent<PlayerHealth>();
         enemyHealth = GetComponent<EnemyHealth>();
         animator = GetComponent<Animator>();

@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour
     private void Awake()
     {
         enemyManager = GetComponent<EnemyManager>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = EnemyManager.playerChar.transform;
         playerHealth = player.GetComponent<PlayerHealth>();
         enemyHealth = GetComponent<EnemyHealth>();
         nav = GetComponent<NavMeshAgent>();

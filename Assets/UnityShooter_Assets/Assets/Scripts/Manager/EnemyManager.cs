@@ -9,13 +9,14 @@ public class EnemyManager : MonoBehaviour
     public GameObject[] enemy;
     public float spawnTime = 3;
     public Transform[] spawnPoints;
-    public GameObject player;
+    public static GameObject playerChar;
     private float waveTime = 10;
 
 
     
     public void Awake()
     {
+        playerChar = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(Timer()); 
     }
 
